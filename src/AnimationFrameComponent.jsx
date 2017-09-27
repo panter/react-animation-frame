@@ -63,6 +63,10 @@ module.exports = function AnimationFrameComponent(InnerComponent, throttleMs) {
                 rafId: requestAnimationFrame(this.loop)
             });
         }
+        
+        componentWillUnmount() {
+            cancelAnimationFrame(this.state.rafId);
+        }
 
         render() {
             return (
